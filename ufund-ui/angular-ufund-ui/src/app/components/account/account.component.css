@@ -1,0 +1,57 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  width: 300px;
+  height: 2px;
+  background-color: #ebebeb;
+  margin: 1em 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 36pt;
+}
+
+h2 {
+  margin: .25em 0;
+  padding: 0;
+  font-size: 20pt;
+}
+
+.contributed-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:.5em 0;
+}
+
+.contributed,
+.contributed-label {
+  font-size: 30pt;
+  margin: auto;
+}
+
+.contributed {
+  font-weight: 500;
+}
+.contributed-label {
+  font-weight: 600;
+}
+.input-container {
+  display:flex;
+  align-items: center;
+  font-size: 20pt;
+}
+.input-container input {
+  font-size: 20pt;
+  margin: 0 .25em;
+  height: fit-content;
+}
+
+.input-container button {
+  font-size: 15pt;
+}

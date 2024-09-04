@@ -1,0 +1,59 @@
+users
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "password": "admin",
+        "email": "admin@google.com"
+    },
+
+    {
+        "id": 2,
+        "username": "user",
+        "password": "user",
+        "email": "user@google.com",
+        "cart": [
+            {
+                "item_id": 1,
+                "amount": 10
+            }
+        ],
+        "orders": [
+            {
+                "id": 1,
+                "date": "2023-05-12 00:00:00",
+                "items": [
+                    {
+                        "item_id": 2,
+                        "amount": 5
+                    },
+                    {
+                        "item_id": 1,
+                        "amount": 13
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+gifts
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "description": "Device capable of accessing the internet and providing students with a portable and efficient method of accomplishing their tasks",
+        "price": 120.00,
+        "priority": 3,
+        "amount_needed": 100
+    },
+    
+    {
+        "id": 2,
+        "name": "Pencil",
+        "description": "Tool allowing students to jot down their notes and work",
+        "price": 2.50,
+        "priority": 4,
+        "amount_needed": 1000
+    }
+]

@@ -1,0 +1,81 @@
+Get gift
+curl -X GET 'http://localhost:8080/gifts/1'
+
+Retrieve all gifts
+curl -X GET 'http://localhost:8080/gifts'
+
+Retrieve all gifts sorted by priority
+curl -X GET 'http://localhost:8080/gifts/?sort=highest'
+curl -X GET 'http://localhost:8080/gifts/?sort=lowest'
+
+Search for a gift by partial/full name
+curl -X GET 'http://localhost:8080/gifts/?name=lap'
+curl -X GET 'http://localhost:8080/gifts/?name=Lap'
+curl -X GET 'http://localhost:8080/gifts/?name=laptop'
+curl -X GET 'http://localhost:8080/gifts/?name=Laptop'
+
+Search for a users by priority
+curl -X GET 'http://localhost:8080/users/?priority=3'
+
+Add gifts
+curl -X POST -H 'Content-Type:application/json' 'http://localhost:8080/gifts' -d '{"name": "Soccer balls", "description": "let the children play", "price": 10, "amount_needed": 100}'
+
+Update a gift
+curl -i -X PUT -H 'Content-Type:application/json' 'http://localhost:8080/gifts' -d
+'{"name": "Balls", "description": "Bounce", "price": 100.00, "priority": 3, "amount_needed": 50}'
+
+Delete a gift
+curl -i -X DELETE 'http://localhost:8080/gifts/1'
+
+Error Checking
+Try to retrieve a gift that doesn't exist
+curl -i -X GET 'http://localhost:8080/gifts/99'
+
+Try to delete a gift that doesn't exist
+curl -i -X DELETE 'http://localhost:8080/gifts/99'
+
+
+
+Get user
+curl -X GET 'http://localhost:8080/users/2'
+
+Retrieve all users
+curl -X GET 'http://localhost:8080/users'
+
+Search for a users by partial/full name
+curl -X GET 'http://localhost:8080/users/?name=user'
+
+Add users
+curl -X POST -H 'Content-Type:application/json' 'http://localhost:8080/users' -d
+'{"username": "hk", "password": "swen261", "email": null, "cart": null, "purchases": null}'
+
+Add user with non-null cart and orders
+curl -X POST -H 'Content-Type:application/json' 'http://localhost:8080/users' -d '{"username":"Howard", "password":"swen261", "email":null, "cart":[{"item_id":2, "amount":2}], "orders":[{"date": "2024-02-26 18:08:00", "items":[{"item_id":1, "amount":12}, {"item_id":2, "amount":1000}]}]}'
+
+Update a user
+curl -i -X PUT -H 'Content-Type:application/json' 'http://localhost:8080/gifts' -d
+'{"username": "hk", "password": "swen261", "email": "hi@google.com", "cart": null, "purchases": null}'
+
+Delete a user
+curl -i -X DELETE 'http://localhost:8080/users/2'
+
+Error Checking
+Try to retrieve a user that doesn't exist
+curl -i -X GET 'http://localhost:8080/users/99'
+
+Try to delete a user that doesn't exist
+curl -i -X DELETE 'http://localhost:8080/users/99'
+
+Get a user cart
+curl -X GET 'http://localhost:8080/users/2/cart'
+
+Add to user cart
+curl -i -X PUT -H 'Content-Type:application/json' 'http://localhost:8080/users/2/cart/' -d
+'{"id": 2, "amount": 20}'
+
+Get a user orders
+curl -X GET 'http://localhost:8080/users/2/orders'
+
+Add to user orders
+curl -i -X PUT -H 'Content-Type:application/json' 'http://localhost:8080/users/2/purchases/' -d
+'{"id": 2, "amount": 20}'

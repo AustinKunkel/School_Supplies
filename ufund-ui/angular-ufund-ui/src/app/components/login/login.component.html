@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Log In | Ufund</title>
+</head>
+<body>
+    <div class="sign-in-container">
+        <form (ngSubmit)="signIn(userInfo)">
+            <h1>Log In</h1>
+
+            <div class="error" *ngIf="errorMessage">
+                <div class="message" (click)="onContainerClick($event)" [innerHTML]="errorMessage"></div>
+            </div>
+            <div class="input-field">
+                <label for="email"><b>Email</b></label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Enter Email" 
+                    [(ngModel)]="userInfo.email">
+            </div>
+
+            <div class="input-field">
+                <label for="password"><b>Password</b></label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Enter Password" 
+                    [(ngModel)]="userInfo.password">
+            </div>
+            <button type="submit" value="Submit" id="submit" class="submit">Submit</button>
+        </form>
+        <div class="lower-container">
+            <button (click)="goBack()" class="back">Back</button>
+            <span class="signup"><p>Don't have an account? | <a class="link" routerLink="/signup">Sign Up</a></p></span>
+        </div>
+    </div>
+</body>
+</html>

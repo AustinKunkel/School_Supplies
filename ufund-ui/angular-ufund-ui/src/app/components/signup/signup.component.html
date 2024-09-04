@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sign Up | Ufund</title>
+</head>
+<body>
+    <div class="sign-in-container">
+        <form (ngSubmit)="signUp(userInfo)">
+            <h1>Sign Up</h1>
+
+            <div class="error" *ngIf="invalidPass">
+                <div class="message">Invalid password, try again. Make sure that it is at least 8 characters long, and includes at least 1 letter, 1 number, 1 special character</div>
+            </div>
+
+            <div class="input-field">
+                <label for="username"><b>Username</b></label>
+                <input 
+                    type="text" 
+                    name="username" 
+                    id="username" 
+                    placeholder="Enter Username" 
+                    [(ngModel)]="userInfo.username">
+            </div>
+
+            <div class="input-field">
+                <label for="email"><b>Email</b></label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Enter Email" 
+                    [(ngModel)]="userInfo.email">
+            </div>
+
+            <div class="input-field">
+                <label for="password"><b>Password</b></label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Enter Password" 
+                    [(ngModel)]="userInfo.password">
+            </div>
+
+            <button type="submit" value="Submit" class="submit">Submit</button>
+        </form>
+        <div class="lower-container">
+            <button (click)="goBack()" class="back">Back</button>
+            <span class="login"><p>Already have an account? | <a routerLink="/login">Log In</a></p></span>
+        </div>
+    </div>
+
+</body>
+</html>

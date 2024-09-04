@@ -1,0 +1,54 @@
+<body>
+  <div class="sort-container">
+    <select [(ngModel)]="sortBy" class="sort-select">
+      <option value="none">None</option>
+      <option value="ascending">Least Needed (Ascending)</option>
+      <option value="descending">Most Needed (Descending)</option>
+    </select>
+    <button (click)="sortGifts()" class="sort-button">Sort</button>
+  </div>
+  
+  <div *ngIf="gifts.length > 0; else noGiftsAvailable"class="gift-container">
+    <div *ngFor="let gift of gifts" class="gift">
+      <div class="upper-container">
+        <a routerLink="/detail/{{gift.id}}"class="name">
+          <div>{{gift.name}}</div>
+        </a>
+  
+        <div class="badge price">${{gift.price}}</div>
+  
+        <div class="description"><p>{{gift.description}}</p></div>
+  
+        <div class="priority">
+          <div class="badge">Priority: </div>
+          <span>{{gift.priority}}</span>
+        </div>
+  
+        <div class="line"></div>
+      </div>
+      <div class="lower-container">
+        <span class="amount">{{gift.amount_needed}}</span>
+        <div class="add-container">
+          <input type="number" 
+                 step=1
+                 name="gift-amount" 
+                 id="gift-amount" 
+                 min=1 
+                 max={{gift.amount_needed}}
+                 onKeyDown="return false"
+                 class="input-amount" 
+                 #giftAmount/>
+          <button (click)="addToCart(gift, giftAmount.value); giftAmount.value=''" class="add">Add to Cart</button>
+        </div>
+      </div>
+  
+      
+    </div>
+  </div>
+  
+  <ng-template #noGiftsAvailable>
+    <div>There are currently no needs available to fund. Good job helpers!</div>
+  </ng-template> 
+</body>
+
+

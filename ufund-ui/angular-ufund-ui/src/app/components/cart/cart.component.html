@@ -1,0 +1,51 @@
+
+<button (click)="goHome()">Home</button>
+
+<div *ngIf="cart.length <= 0 && !order">
+  No items in cart 
+</div>
+
+<main *ngIf="!order">
+  <div class="items">
+    <div *ngFor="let item of cart" class="item-container">
+          <button (click)="getDetail(item.item_id)" class="detail">
+            <div class="badge">{{item.name}}</div>
+          </button>
+
+          <div class="lower-container">
+            <div class="amount"> Amount: {{item.amount}}</div>
+              <button (click)="removeItem(item)">Remove from Cart</button>
+          </div>
+    </div>
+  </div>
+
+  <div *ngIf="cart.length > 0">
+    <button class="badge" (click)="checkout()">Check out <span class="cost" *ngIf="itemCost >= 0.00">${{itemCost}}</span></button>
+  </div>
+</main>
+
+<div class="order"  *ngIf="order">
+  <div class="order-container">
+    <div class="header">Order Information</div>
+    <div class="id"><span class="badge">Order id: </span>{{order.id}}</div>
+    <div class="date"><span class="badge">Order date: </span>{{order.date}}</div>
+
+    <div *ngIf="orderCost >= 0" class="cost"><span class="badge">Order cost: </span>${{orderCost}}</div>
+
+    <div class="badge">Order items:</div>
+
+    <div class="items">
+      <div *ngFor="let item of order.items" class="item-container">
+        <button (click)="getDetail(item.item_id)" class="detail">
+          <div class="badge">{{item.name}}</div>
+        </button>
+
+        <div class="amount"> Amount: {{item.amount}}</div>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="hideOrderInfo()">
+    <div class="badge">Back</div>
+  </button>
+</div>

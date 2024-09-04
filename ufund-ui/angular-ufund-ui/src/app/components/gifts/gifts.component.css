@@ -1,0 +1,218 @@
+*
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root 
+{
+    --text-color: black;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.sort-container {
+    display: flex;
+    justify-content: center;
+    width: calc(400px + 3em);
+}
+
+.sort-select, .sort-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: .3em .5em;
+    margin: 0 .5em;
+    border: 1px solid rgb(134, 134, 134);
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+}
+
+.sort-button:hover {
+    background-color: #cacaca;
+}
+
+.gift-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor:default;
+}
+
+
+.gift 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    --width: 300px;
+    width: var(--width);
+    height: 300px;
+
+    padding: .5em;
+    margin: 1.5em;
+
+    --gift-prim-color : rgb(230, 230, 230);
+    border: 3px solid var(--gift-prim-color);
+    border-radius: 10px;
+
+}
+
+.upper-container
+{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 85%;
+}
+
+.lower-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display:flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 30px;
+    height:10%;
+    max-width:90%
+}
+
+.name::-webkit-scrollbar{
+    display: none;
+}
+
+
+a
+ {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 30px;
+    font-weight: 500;
+    padding: .25em;
+    cursor:pointer;
+}
+
+a:hover
+{
+    transition: all .25s;
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+}
+
+
+.description
+{
+    height: 30%;
+    width: calc(var(--width) - .5em);
+    overflow-y: scroll;
+    margin: .5em 0;
+
+    box-sizing: border-box;
+
+    border:1.5px solid var(--gift-prim-color);
+    border-radius: 3px;
+    padding: .25em .5em;
+}
+
+.description::-webkit-scrollbar
+ {
+    display: none;
+}
+
+.description::-webkit-scrollbar:hover
+{
+    display: block;
+}
+
+.line
+{
+    height:2px;
+    background-color: #ccc;
+    margin:.5em 0;
+    width:95%;
+}
+
+.priority
+{
+    margin: .5em 0;
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.badge 
+{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.lower-container span 
+{
+    width: fit-content;
+    max-width: 30%;
+    overflow: hidden;
+}
+
+.add, button
+{
+    width: fit-content;
+    padding: .3em;
+    border: 1px solid rgb(134, 134, 134);
+    border-radius: 5px;
+    margin-right: 0;
+
+    transition: all .25s;
+
+    cursor: pointer;
+}
+
+.add:hover, button:hover{
+    background-color: #cacaca;
+}
+
+.add-container
+{
+    display: inline-block;
+}
+
+.input-amount
+{
+    width:fit-content;
+    min-width: 1em;
+    max-width: 3em;
+    overflow: hidden;
+    padding: .25em;
+    cursor:default;
+    caret-color: transparent;
+}
+
+.input-amount::placeholder
+{
+    color: var(--text-color);
+}
+
+.input-amount::-webkit-inner-spin-button
+{
+    opacity: 1;
+    cursor:pointer;
+}
+
+

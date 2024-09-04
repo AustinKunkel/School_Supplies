@@ -1,0 +1,105 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ /* styles the input group */ 
+.input-group {
+    --width: 300px;
+    width: var(--width);
+    height: fit-content;
+
+    padding: .5em;
+    margin: 3em auto;
+
+    --gift-prim-color : rgb(230, 230, 230);
+    border: 3px solid var(--gift-prim-color);
+
+    border-radius: 10px;
+
+}
+
+.list {
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Items spaced evenly */  
+    flex-wrap: wrap;
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    /* background-color: green; */
+}
+
+.gifts {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use Flexbox */
+    flex-wrap: wrap; /* Wrap items if necessary */
+    justify-content: space-around;
+    /* background-color: blue; */
+}
+
+
+.list .description {
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.input-container
+{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input, textarea, select{
+ height: fit-content;
+ padding:.25em;
+ width: 90%;
+ border: 3px solid #ccc;
+ border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+.add 
+{
+    margin-top:1em;
+}
+
+.button-container {
+    margin-top:1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-item
+{
+    margin:.25em 0;
+    
+}
+
+.input-item input, .input-item textarea, .input-item select
+{
+    margin-top:.25em;
+}
+
+/* Borders around input fields */
+.input-item textarea
+{
+    margin: .25em 0;
+    box-sizing: border-box;
+    border:3px solid #ccc;
+}
+
+.input-item label
+{
+    margin-left: .2em;
+}

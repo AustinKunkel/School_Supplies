@@ -1,0 +1,39 @@
+<div *ngIf="gift">
+  <h1>{{gift.name}}</h1>
+  <div class="container">
+    
+    <div class="price-container">
+      <h2>Price: </h2>
+      <span class="price"><p>{{gift.price}}</p></span>
+    </div>
+    
+    <div class="desc-container">
+      <h2>Description: </h2>
+      <p class="description">{{gift.description}}</p>
+    </div>
+
+    <div class="amount-container">
+      <h2>Amount: </h2>
+      <span class="amount"><p>{{gift.amount_needed}}</p></span>
+    </div>
+  </div>
+
+  <div class="lower-container">
+    <button type="button" (click)="goBack()" class="back">Go Back</button>
+
+    <div *ngIf="!isUser" style="flex-grow: 1;"></div>
+    <div *ngIf="isUser"class="add-container">
+      <input type="number" 
+            step="1"
+            name="gift-amount" 
+            id="gift-amount" 
+            min="1" 
+            max={{gift.amount_needed}}
+            onKeyDown="return false"
+            placeholder="0" 
+            class="input-amount" 
+            #giftAmount/>
+      <button (click)="addToCart(gift, giftAmount.value); giftAmount.value='';" class="add">Add to Cart</button>
+    </div>
+  </div>
+</div>

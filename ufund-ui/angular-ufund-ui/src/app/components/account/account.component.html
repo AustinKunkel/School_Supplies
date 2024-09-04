@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>user-account</title>
+    </head>
+    <header>
+        <button (click)="goHome()">Home</button>
+
+        <button class="log-out" (click)="logOut()">Log Out</button>
+    </header>
+    <body>
+        <div class="user-container" *ngIf="currentUser.id > 0">
+            <h1>Hi, {{currentUser.username}}</h1>
+
+            <div class="contributed-container">
+                <div class="contributed-label">Total contributed: </div>
+                <div class="contributed">${{totalContributed}}</div>
+            </div>
+
+            <div class="info-container">
+                <h2>Email: {{currentUser.email}}</h2>
+                <div class="input-container">
+                    <label for="username"><h2>Username: </h2></label>
+                    <input type="text" 
+                           name="username" 
+                           [(ngModel)]="currentUser.username"
+                           value="currentUser.username"
+                           #username>
+                    <button type="submit" (click)="saveUser(username.value); username.value=currentUser.username">Save</button>
+                </div>
+                <button>Change Password</button>
+            </div>
+
+            <button (click)="showOrders()" *ngIf="!showOrdersFlag">Show orders</button>
+            <div *ngIf="showOrdersFlag" class="order-container">
+                <div *ngIf="orders.length > 0">
+                <div class="header">Order Information</div>
+
+
+                <div class="order" *ngFor="let order of orders">
+                    <div class="line"></div>
+                    <div class="id"><span class="badge">Order id: </span>{{order.id}}</div>
+                    <div class="cost"><span class="badge">Order cost: </span>${{order.cost}}</div>
+                    <div class="date"><span class="badge">Order date: </span>{{order.date}}</div>
+                    <div class="badge">Order items:</div>
+                
+                    <div *ngIf="order.items" class="items">
+                    <div *ngFor="let item of order.items" class="item-container">
+                        <button (click)="getDetail(item.item_id)" class="detail">
+                        <div class="badge">{{item.name}}</div>
+                        </button>
+                
+                        <div class="amount"> Amount: {{item.amount}}</div>
+                    </div>
+                    </div>
+
+                </div>
+
+                
+                <button *ngIf="!noMoreOrders" (click)="showMoreOrders()">Show more</button>
+                <button *ngIf="orders.length > 3" (click)="showLessOrders()">Show less</button>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

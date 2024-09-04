@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <nav>
+        <button (click)="logOut()">Log Out</button>
+        <h1>{{Title}}</h1>
+        <div class="freespace"></div>
+    </nav>
+    
+    <div *ngIf="!editFlag" class="input-group">
+            <h2>New Gift Creation</h2>
+            <div class="input-item">
+                <label for="gift-name">Name</label>
+                <input name="gift-name" 
+                    id="gift-name" #giftName />
+            </div>
+
+            <div class="input-item">
+            <label for="gift-desc">Description</label>
+            <textarea type="text"
+                name="gift-desc" 
+                id="gift-desc" #giftDesc></textarea>
+            </div>
+
+            <div class="input-item">
+            <label for="gift-price">Price</label>
+            <input type="number" step="0.01" name="gift-price" id="gift-price" #giftPrice />
+            </div>
+
+            <div class="input-item">
+                <label for="gift-amount">Amount</label>
+                <input type="number" 
+                    name="gift-amount"
+                    id="gift-amount" 
+                    min="1" #giftAmount/>
+                </div>
+
+            <div class="input-item">
+                <label for="gift-priority">Priority</label>
+                <select name="gift-priority" 
+                        id="gift-priority"
+                        placeholder="Gift priority"
+                        #giftPriority>
+                    <option value="NONE">NONE</option>
+                    <option value="LOW">LOW</option>
+                    <option value="MID">MID</option>
+                    <option value="HIGH">HIGH</option>
+                    <option value="SEVERE">SEVERE</option>
+                </select>
+            </div>
+
+            <div class="button-container">
+                <button (click)="addGift(giftName.value, giftDesc.value, giftPrice.value, giftAmount.value,giftPriority.value);
+                            giftName.value='';
+                            giftDesc.value='';
+                            giftPrice.value='';
+                            giftAmount.value='';
+                            giftPriority.value='';">Add Gift</button>
+                <button (click)="giftName.value='';
+                                giftDesc.value='';
+                                giftPrice.value='';
+                                giftAmount.value='';">Clear</button>
+            </div>
+    </div>
+
+    <div class="edit-detail-container input-group" *ngIf="editFlag" id="giftScroll">
+
+      <h1>{{giftEdit.name}} Details</h1>
+      <div class="info-container">
+    
+        <div class="input-container">
+          <label for="gift-name"><h2>Name:</h2></label>
+          <input id="gift-name" [(ngModel)]="giftEdit.name" placeholder="Gift name" />
+        </div>
+    
+        <div class="input-container">
+          <label for="gift-desc"><h2>Description: </h2></label>
+          <textarea id="gift-desc" [(ngModel)]="giftEdit.description" placeholder="Gift description"><p>{{giftEdit.description}}</p></textarea>
+        </div>
+    
+      
+        <div class="input-container">
+          <label for="gift-price"><h2>Price:</h2></label>
+          <input type="number" 
+                 step="0.01"
+                 id="gift-price"
+                 [(ngModel)]="giftEdit.price" 
+                 placeholder="Gift price" />
+        </div>
+    
+        <div class="input-container">
+          <label for="gift-priority"><h2>Priority:</h2></label>
+          <select name="gift-priority" 
+                  id="gift-priority"
+                  [(ngModel)]="giftEdit.priority" 
+                  placeholder="Gift priority">
+            <option value="NONE">NONE</option>
+            <option value="LOW">LOW</option>
+            <option value="MID">MID</option>
+            <option value="HIGH">HIGH</option>
+            <option value="SEVERE">SEVERE</option>
+          </select>
+        </div>
+      </div>
+    
+        <div class="input-container">
+          <label for="gift-amount"><h2>Amount:</h2></label>
+          <input type="number" 
+                 id="gift-amount" 
+                 [(ngModel)]="giftEdit.amount_needed" 
+                 placeholder="Gift amount" />
+        </div>
+    
+      <div class="button-container">
+        <button type="button" (click)="goBack()">Go Back</button>
+        <span class="save"><button type="submit" (click)="saveUpdatedGift()">Save</button></span>
+      </div>
+      
+  </div>
+
+  <!--List of gifts-->
+    <div class="list">
+    <ul class="gifts">
+        <div *ngFor ="let gift of gifts" class="gift">
+                <div class="name">{{ gift.name }}</div> 
+                <div class="price">{{gift.price}}</div>
+                <div class="description">{{ gift.description }}</div>
+            <div class="lower-container">
+                <div class="amount">Amount: {{ gift.amount_needed }}</div>
+                <span>Priority: <b>{{gift.priority}}</b></span>
+            </div>
+            <div class="button-container">
+                <button (click)="getDetail(gift)">Details</button>
+                <button (click)="deleteGift(gift)">Delete Gift</button>
+            </div>
+        </div>
+    </ul>
+    </div>
+
+</body>
+</html>

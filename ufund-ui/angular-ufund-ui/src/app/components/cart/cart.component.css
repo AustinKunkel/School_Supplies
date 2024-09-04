@@ -1,0 +1,43 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.header {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+  background-color: #ccc;
+  border: none;
+  border-radius: 3px;
+  width: fit-content;
+  padding: .25em .5em;
+}
+
+button:hover {
+  background-color:#dbdada ;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1em 0 ;
+}
+
+.item-container {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding:.5em;
+  margin: 0 1em;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+
+.badge {
+  font-size: 20px;
+}

@@ -1,0 +1,22 @@
+<div id="search-component" class="search-component">
+
+  <div class="search-container">
+    <input #searchBox
+           id="search-box" 
+           (input)="search(searchBox.value)"
+           [ngClass]="{'search-box': hasGifts, 'search-box-no-gifts': !hasGifts}"
+           placeholder="Search Gifts" />
+  </div>
+
+    <div [ngClass]="{'gift-container': hasGifts, 'gift-container-no-gifts': !hasGifts}">
+      <div *ngFor="let gift of gifts$ | async" class="gift">
+        <div class="line"></div>
+        <button class="info-container" (click)="getDetail(gift.id)">
+          
+          <div class="badge">{{gift.name}}</div >
+    
+          <div class="badge price">${{gift.price}}</div>
+        </button>
+      </div>
+    </div>
+</div>

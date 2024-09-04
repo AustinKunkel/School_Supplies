@@ -1,0 +1,125 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.sign-in-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 40%;
+    padding: 1em;
+    margin: auto;
+
+    border: 3px solid rgb(216, 216, 216);
+    border-radius:5px;
+
+    cursor:default;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    padding: .25em;
+}
+
+input {
+  padding: .5em;
+  margin: .25em 0;
+  border: 1px solid #ccc;
+}
+
+
+.submit {
+    width: 100%;
+    padding: .5em;
+    margin: .75em auto;
+}
+
+button
+{
+    border: none;
+    background-color: #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #dbdada;
+}
+
+.lower-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back
+{
+    width:fit-content;
+    padding: .5em .75em;
+}
+
+span.signup {
+    display: inline-block;
+    margin-right: .5em;
+}
+
+/**
+used by sign up 
+*/
+span.login {
+    display:inline-block;
+    margin-right: .5em;
+}
+
+.home {
+    margin-left: .5em;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/**** Error messages ****/
+
+.error {
+    background-color: rgb(223, 155, 156);
+
+    height: fit-content;
+    padding:.5em;
+
+    border: 3px solid rgb(219, 110, 112);
+    border-radius: 3px;
+}
+.message {
+    color: #5a5a5a;
+    font-size: 11pt;
+}
+
+.link {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #551A8B;
+}
+
+.link:active {
+    text-decoration: underline;
+}
